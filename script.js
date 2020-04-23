@@ -50,6 +50,15 @@ function handleResultValidation() {
             break;
         }
     }
+    let count = 0;
+    for(let i = 0; i < gameState.length; i++) {
+        if(gameState[i] != "") {
+            count++;
+        }
+    }
+    if(count === 9) {
+        document.querySelector(".result").innerHTML = "It's a draw";
+    }
     handlePlayerChange();
 }
 
