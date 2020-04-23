@@ -51,9 +51,11 @@ function handleResultValidation() {
         }
     }
     let count = 0;
-    for(let i = 0; i < gameState.length; i++) {
-        if(gameState[i] != "") {
-            count++;
+    if(gameOn == true) {
+        for(let i = 0; i < gameState.length; i++) {
+            if(gameState[i] != "") {
+                count++;
+            }
         }
     }
     if(count === 9) {
