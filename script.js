@@ -7,7 +7,6 @@ let gameState = ["", "", "", "", "", "", "", "", ""];
 let winner = "";
 
 function restartGame() {
-    //console.log("restart");
     gameState = ["", "", "", "", "", "", "", "", ""];
     gameOn = true;
     currentPlayer = "X";
@@ -27,7 +26,6 @@ function handlePlayerChange() {
 }
 
 function handleResultValidation() {
-    //console.log("result evaluation");
     const winningCondition = [
         [1, 2, 3],
         [4, 5, 6],
@@ -39,10 +37,8 @@ function handleResultValidation() {
         [3, 5, 7]
     ];
     for(let i = 0; i < winningCondition.length; i = i + 1) {
-        //console.log("in i");
         let count = 0;
         for(let j = 0; j < winningCondition[i].length; j = j + 1) {
-            //console.log("in j");
             if(gameState[winningCondition[i][j]] == currentPlayer) {
                 count += 1;
             }
@@ -58,7 +54,6 @@ function handleResultValidation() {
 }
 
 function handleCellPlayed(clickedCell, clickedCellIndex) {
-    //console.log("in handle cell");
     gameState[clickedCellIndex] = currentPlayer;
     clickedCell.innerHTML = currentPlayer;
 }
@@ -66,13 +61,10 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 
 function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
-    //console.log("clicked");
     const clickedCellIndex = parseInt(
         clickedCell.getAttribute("cell-id")
     );
-    //console.log(clickedCellIndex);
     if (gameState[clickedCellIndex] === "X" || gameState[clickedCellIndex] === "O" || !gameOn) {
-        //console.log("not allowed")
         return;
     }
     handleCellPlayed(clickedCell, clickedCellIndex);
